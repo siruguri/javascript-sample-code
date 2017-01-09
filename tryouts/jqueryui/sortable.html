@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery UI Sortable - Display as grid</title>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<link rel="stylesheet" href="/resources/demos/style.css">
+		<style>
+			#sortable { list-style-type: none; margin: 0; padding: 0; width: 450px; }
+			#sortable:after { clear: both; display: block; content: '';}
+			#sortable li { margin: 3px 3px 3px 0; padding: 1px; float: left; width: 100px; height: 90px; font-size: 4em; text-align: center; }
+		</style>
+		<script>
+			var cb=function(evt, ui) {
+				$(".message").html('Moved to ' +  $( "#sortable" ).sortable( "toArray" ));
+			}
+			$(document).ready(function() {
+				$( "#sortable" ).sortable({stop: cb});
+				$( "#sortable" ).disableSelection();
+			});
+	</script>
+	</head>
+
+	<body>
+		<table>
+			<tbody id="sortable">
+				<tr id='1' class="ui-state-default"><td>1</td></tr>
+				<tr id='1' class="ui-state-default"><td>2</td></tr>
+			</tbody>
+		</table>
+		<div class='message'>No move yet</div>
+	</body>
+</html>

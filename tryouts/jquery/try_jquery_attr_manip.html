@@ -1,0 +1,45 @@
+<html>
+
+<head>
+	<script src="libs/jquery-1.10.2.min.js"></script>
+	<style type="text/css">
+	.class-red {
+		color: red;
+	}
+	.class-blue {
+		color: blue;
+	}
+	.click-color {
+		border-radius: 10px;
+		box-shadow: 1px 2px 5px 10px green;
+		width: 150px;
+		margin-top: 15px;
+		padding-left: 10px;
+	}
+	</style>
+</head>
+
+<body>
+
+	<div class='class-red' id='location_1'>The location div</div>
+	<div class='click-color' count=0>
+		Click Me to change color.
+	</div>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$(".click-color").click(function() {
+			elt_class=$("#location_1").attr('class');
+			curr_count = parseInt($(this).attr("count"));
+			$(this).attr("count", curr_count+1);
+			if(elt_class == 'class-red') {
+				elt_class='class-blue';
+			} else {
+				elt_class='class-red';
+			}
+
+			$("#location_1").attr('class', elt_class);
+		});
+	});
+	</script>
+</body>

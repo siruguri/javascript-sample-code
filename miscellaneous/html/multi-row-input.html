@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <script type='text/javascript' src='http://code.jquery.com/jquery-2.1.3.min.js'>
+    </script>
+    <script type="text/javascript">
+     $(document).ready(function() {
+       deleter = function(evt) {
+	 send_str = $('#sendtext').text();
+	 send_ids = send_str.split(',');
+	 index = send_ids.indexOf($(this).data('id'))
+	 if (index> -1) {
+	   send_ids.splice(index, 1);
+	 }
+
+	 
+	 $('#sendtext').text(send_ids.join(','));
+	 $(this).parent().remove();
+       };
+       
+       $('#onerowsubmit').click(function() {
+	 ul_parent = $('.inputcontainer').find('ul');
+	 $(ul_parent).append('<li></li>');
+	 text=$('#inputbox_name').val() + ', ' + $('#inputbox_number').val();
+	 added_li = $(ul_parent).children().last()
+	 $(added_li).html(text);
+	 $(added_li).append('<div class="deletebutton">X</div>');
+	 delete_div = $(added_li).children().last()
+	 $(delete_div).click(deleter);
+	 $(delete_div).data('id', $('#inputbox_number').val());
+
+	 send_str = $('#sendtext').text();
+	 send_str += ',' + $('#inputbox_number').val();
+	 $('#sendtext').text(send_str);
+       });
+     });
+    </script>
+
+
+    <style>
+     .plainlist {
+       list-style-type: none;
+     }
+    </style>
+  </head>
+
+  <body>
+Hello World!
+    <form method='get' action='http://www.google.com/'>
+      <div class='inputcontainer'>
+	Name: <input id='inputbox_name' type='text' /> Number: <input id='inputbox_number' type='text' /> <span id='onerowsubmit'>Save</span>
+	<ul class='plainlist'></ul>
+      </div>
+      <input type='submit' />
+    </form>
+    <div id='sendtext'></div>
+  </body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="d3.min.js">
+  </script>
+
+</head>
+<p>this is a p whose data will be 81</p>
+  <svg width="50" height="50">
+  <rect x="0" y="0" width="50" height="50" fill="green" />
+</svg>
+
+<svg width="50" height="50">
+  <polyline fill="none" stroke="blue" stroke-width="2"
+    points="00,0
+            15,30
+            15,20
+            25,20
+            25,10
+            35,10" />
+</svg>
+<script>
+  var theData = [81,42,-103];
+ var p =
+ d3
+  .select("body")
+  .selectAll("p")
+  .data(theData)
+    .enter()
+ .append("p");
+</script>
+</html>

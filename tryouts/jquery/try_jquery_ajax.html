@@ -1,0 +1,32 @@
+<html>
+
+<head>
+<script src="jquery-1.10.2.min.js"></script>
+<script >
+	function add_comment(mesg) {
+			$("<div></div>").attr({id: "comment"}).html(mesg).appendTo("#commentlist");
+			$("<hr></hr>").appendTo("#commentlist");
+	}
+</script>
+
+</head>
+<body>
+	
+<div id="commentlist">
+	
+
+</div>
+<hr/>
+<input type='text' id='inputbox'></input>
+
+<div id='trigger'>Click on Button</div>. 
+<script>
+$("#trigger").click(function() {
+	jQuery.ajax('http://api.icndb.com/jokes/random').done(function(data) {
+		joke = data["value"]["joke"];
+		add_comment(joke);
+	});
+});
+</script>
+
+</body>

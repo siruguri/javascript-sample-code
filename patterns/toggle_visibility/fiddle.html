@@ -1,0 +1,53 @@
+<html>
+
+<head>
+	<script src="libs/jquery-1.10.2.min.js"></script>
+	<style type="text/css">
+	  
+
+	  .button {
+	  	border-radius: 10px;
+	  	box-shadow: 1px 2px 5px 10px green;
+	  	width: 150px;
+	  	margin-top: 15px;
+	  	padding-left: 10px;
+	  }
+
+
+
+	  .content {
+	  	display: none;
+	  	margin-top: 20px;
+	  }
+	</style>
+</head>
+
+<body>
+  <div>
+  	<h1 style='display:inline'>
+  		Articles Galore!
+  	</h1>
+  	<span class='button'>
+    See What They Are!
+	</span>
+ </div>
+  <div class='content '>
+    So many articles, all over the place <p/>
+    What to with all these articles <p/>
+  </div>
+
+  
+
+	<script type="text/javascript">
+		$(document).ready(
+			function() {
+				$(".button").click(
+					function() {
+						curr_vis=$(".content").css('visibility');
+						new_vis = curr_vis == 'visible' ? 'hidden' : 'visible';
+						$(".content").css('visibility', new_vis);
+											
+					});
+			});
+	</script>
+</body>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>show demo</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <style>
+      div {
+      display: none;
+      width: 100px;
+      height: 100px;
+      background: #ccc;
+      border: 1px solid #000;
+      }
+    </style>
+    <script src="libs/jquery.js"></script>
+    <script src="libs/jquery-ui.min.js"></script>
+
+  </head>
+  <body>
+    <button>show the div</button>
+    <div>
+      here it is
+      <script>
+       $( "button" ).click(function() {
+	 $( "div" ).show( "blind", 1000 );
+       });
+      </script>
+    </div>
+    </body>

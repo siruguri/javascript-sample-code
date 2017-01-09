@@ -1,0 +1,28 @@
+<html>
+
+<head>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src='script.js'>
+ 
+</script>
+<script >
+	function add_comment(mesg) {
+			$("<div></div>").attr({class: "comment"}).html(mesg).appendTo("#commentlist");
+			$("<hr></hr>").appendTo("#commentlist");
+	}
+</script>
+
+</head>
+<body>
+	
+<div id="commentlist">
+	
+
+</div>
+<hr/>
+<input type='text' id='inputbox'></input>
+
+<div id='trigger'>Click on Button</div>.
+<button id='hider'>Hide all new divs</button>
+
+</body>

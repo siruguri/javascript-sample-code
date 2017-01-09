@@ -1,0 +1,23 @@
+.container {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px black solid;
+}
+
+.suggestion-border {
+  display: none;
+  border: solid 1px red;
+  padding: 10px 0px;
+}
+
+.suggestion-border li:hover {
+  background-color: lightblue;
+  cursor: pointer;
+}
+
+
+.selection-border {
+  margin-top: 10px;
+  display: none;
+  border: solid 1px blue;
+}

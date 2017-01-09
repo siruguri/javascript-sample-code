@@ -1,0 +1,66 @@
+<html>
+
+<head>
+	<script src="jquery-1.10.2.min.js"></script>
+	<script src="jquery.session.js"></script>
+	<style type="text/css">
+	.class-red {
+		color: red;
+	}
+	.class-blue {
+		color: blue;
+	}
+	.click {
+		border-radius: 10px;
+		box-shadow: 1px 2px 5px 10px green;
+		width: 150px;
+		margin: 15px;
+		padding-left: 10px;
+	}
+	</style>
+</head>
+
+<body>
+
+	<div class='class-red' id='location_1'>The location div</div>
+	<div class='click click-clear'>
+		Click Me to clear session.
+	</div>
+	<div class='data' style='visibility:hidden;'>42</div>
+
+	<input type='text' class="input1" value=''></input>
+	<input type='text' class="input2" value=''></input>
+	<div class='click click-changedata'>
+		Use this!
+	</div>
+		
+	<div class='fader' style='display:none'>Saved!</div>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+
+		if ($.session.get('data') == null) {
+			$('input:text').first().val($('.data').text());			
+		} else {
+			$('input:text').first().val($.session.get('data'));			
+		}
+
+		$('.click-clear').click(function() {
+			$.session.clear();
+		});
+
+		$('.click-changedata').click(function() {
+			data = $('input:text').first().val();
+			$.session.set('data', data);
+			$('.fader').fadeIn('slow');
+			$('.fader').fadeOut('slow');
+		});
+
+		if ($.session.get('data') == null) {
+			$.session.set('data', $('.data').text());
+		}
+
+
+	});
+	</script>
+</body>
