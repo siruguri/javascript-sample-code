@@ -1,3 +1,4 @@
+dist/
 zxcvbn/
 node_modules/
 *ttf
