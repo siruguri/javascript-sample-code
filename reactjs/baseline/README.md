@@ -8,7 +8,7 @@
   * UI: jsdom
 * Favorite libraries:
   * All
-    * immutable (chai-immutable),
+    * immutable (test: chai-immutable),
   * Clients
     * react, react-dom, react-hot-loader
   

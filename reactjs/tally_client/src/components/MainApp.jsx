@@ -2,7 +2,6 @@ import React from 'react';
 import CarList from './CarList';
 import Counterer from './Counterer';
 
-
 export default React.createClass({
   getCarList: function() {
   	return this.props.counts || []
