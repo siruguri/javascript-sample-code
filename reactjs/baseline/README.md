@@ -11,7 +11,21 @@
     * immutable (test: chai-immutable),
   * Clients
     * react, react-dom, react-hot-loader
-  
+
+# Testing
+
+As expected, testing in React is a nightmarish thicket of JS libraries because you have to create a DOM out of nowhere, in the absence of a browser. React's testing utilities (`react-test-utils`) have methods that magically [expect global variables called `document` and `window` to exist](https://facebook.github.io/react/docs/test-utils.html#renderintodocument) in order to work.
+
+To do this, `jsdom` can be used to first create a dummy DOM, and then its properties are used to create the required global variables in the JS namespace:
+
+```
+    const doc = jsdom.jsdom('<!doctype html><html><body></body></html>');
+    const win = doc.defaultView;
+
+    global.document = doc;
+    global.window = win;
+```
+
 # Files
 
 ## Clients

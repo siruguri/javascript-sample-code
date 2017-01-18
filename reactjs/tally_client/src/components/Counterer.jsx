@@ -1,4 +1,6 @@
 import React from 'react';
+import TallyButton from './TallyButton';
+
 export default React.createClass({
 	getList: function() {
 		return this.props.counts || [];
@@ -7,7 +9,7 @@ export default React.createClass({
 	render: function() {
 		return <div className='car-list'>
 					{this.getList().map(car_name => 
-						<button className='carname-button' key={car_name}>{car_name}</button>)
+						<TallyButton button_name={car_name} key={car_name}/>)
 					}
 				</div>;
 	}
